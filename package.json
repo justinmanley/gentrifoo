@@ -1,16 +1,19 @@
 {
-  "name": "leaflet-illustrate",
-  "version": "0.0.2",
-  "description": "Rich annotation plugin for Leaflet.",
+  "name": "hackathon-demo",
+  "version": "0.0.1",
+  "description": "Silly gentrification model for Fall 2015 Hackathon.",
   "scripts": {
     "test": "grunt travis"
   },
   "dependencies": {
-    "leaflet": "^0.7.3"
+    "d3": "^3.4.13",
+    "leaflet": "^0.7.3",
+    "leaflet-providers": "1.0.10",
+    "lodash": "^2.4.1",
+    "rbush": "^1.3.4"
   },
   "devDependencies": {
     "jshint": "2.5.x",
-
     "grunt": "~0.4.2",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-concat": "0.4.x",
@@ -21,17 +24,13 @@
     "grunt-mocha": "~0.4.11",
     "grunt-karma": "0.8.3",
     "matchdep": "~0.3.0",
-
     "chai": "1.9.1",
     "mocha": "~1.14.0",
     "sinon": "1.10.3",
-
     "karma": "0.12.16",
     "karma-phantomjs-launcher": "0.1.4",
     "karma-mocha": "^0.1.4",
-    "karma-mocha-reporter": "0.2.7",
-
-    "leaflet": "~0.7.0"
+    "karma-mocha-reporter": "0.2.7"
   },
   "repository": {
     "type": "git",
