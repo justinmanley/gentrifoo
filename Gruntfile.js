@@ -78,22 +78,6 @@ module.exports = function(grunt) {
                 tasks: [ 'build:js' ]
             }
 
-        },
-
-        concat: {
-            dist: {
-                options: {
-                    banner: '(function(window, document, undefined) {\n\n"use strict";\n\n',
-                    footer: '\n\n}(window, document));'
-                },
-                src: [
-                    'src/ToolbarAction.js',
-                    'src/Toolbar.js',
-                    'src/ToolbarGroup.js',
-                    'src/Toolbar.*.js'
-                ],
-                dest: 'dist/Leaflet.Toolbar.js',
-            }
         }
     });
 
@@ -105,7 +89,6 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build:js', [
         'jshint',
-        'karma:development:run',
-        'concat:dist'
+        'karma:development:run'
     ]);
 };
