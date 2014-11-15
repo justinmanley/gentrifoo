@@ -20,4 +20,17 @@ d3.json('data/BuildingsByCensusTract.geojson', function(err, data) {
 				.addTo(map);
 		});
 	}
+
+	/* Animate changing "property values" from 1890 to 2014. */
+	year = 1890;
+
+	var id = setInterval(function() {
+		console.log("The year is " + year);
+		if (year < 2014) {
+			model.simulateYear(year)
+			year += 1;
+		} else { 
+			clearInterval(id);
+		}
+	}, 500);	
 }); 
