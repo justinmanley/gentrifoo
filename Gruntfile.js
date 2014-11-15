@@ -25,17 +25,20 @@ module.exports = function(grunt) {
                 smarttabs: true,
                 globals: {
                     L: false,
+                    rbush: true,
+                    CensusTract: true,
+                    GentrificationModel: true,
+                    _: false,
+                    d3: false,
 
                     // Mocha
 
                     describe: false,
                     it: false,
-                    before: false,
-                    after: false,
                     beforeEach: false,
                     afterEach: false,
                     chai: false,
-                    expect: false,
+                    expect: true,
                     sinon: false
                 }
             },
@@ -43,34 +46,20 @@ module.exports = function(grunt) {
                 src: [ 'src/*.js', 'Gruntfile.js', 'package.json' ]
             },
             test: {
-                src: [ 'test/SpecHelper.js', 'test/src/**' ],
+                src: [ 'spec/SpecHelper.js', 'spec/src/*Spec.js' ],
             },
             grunt: {
                 src: [ 'Gruntfile.js' ]
             }
         },
 
-        less: {
-            source: {
-                files: {
-                    'dist/Leaflet.Toolbar.css': 'src/Toolbar.less'
-                }
-            }
-        },
-
         karma: {
-            travis: {
-                configFile: 'test/karma.conf.js',
-                background: false,
-                singleRun: true,
-                browsers: [ 'PhantomJS' ]
-            },
             development: {
-                configFile: 'test/karma.conf.js',
+                configFile: 'spec/karma.conf.js',
                 background: true
             },
             unit: {
-                configFile: 'test/karma.conf.js',
+                configFile: 'spec/karma.conf.js',
                 background: false,
                 singleRun: true
             }
@@ -83,14 +72,10 @@ module.exports = function(grunt) {
             source: {
                 files: [
                     'src/*.js',
-                    'test/**',
+                    'spec/**',
                     'Gruntfile.js'
                 ],
                 tasks: [ 'build:js' ]
-            },
-            css: {
-                files: [ 'src/*.less' ],
-                tasks: [ 'build:css' ]
             }
 
         },
@@ -123,6 +108,4 @@ module.exports = function(grunt) {
         'karma:development:run',
         'concat:dist'
     ]);
-
-    grunt.registerTask('build:css', [ 'less' ]);
 };
