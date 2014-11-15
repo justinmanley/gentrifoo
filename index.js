@@ -9,8 +9,15 @@ L.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 d3.json('data/BuildingsByCensusTract.geojson', function(err, data) {
-	/* 
-	 * Create a CensusTract object from each GeoJSON feature (see src/CensusTract)
-	 * Add each CensusTract to the map and to a gentrification model.
-	 */
+	var model = new GentrificationModel(),
+		year;
+
+	if (err) { throw err; }
+	else {
+		data.features.forEach(function(feature) {
+			new CensusTract(feature, { fill: true, fillOpacity: 0, weight: 1 })
+				.addToModel(model)
+				.addTo(map);
+		});
+	}
 }); 
